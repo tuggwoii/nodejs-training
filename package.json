@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "ejs": "2.3.3",
-    "express": "4.13.3"
+    "express": "4.13.3",
+    "bootstrap": "3.3.5"
   },
   "engines": {
     "node": "0.12.7"
@@ -24,6 +25,6 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "bootstrap": "^3.3.5"
+    
   }
 }
