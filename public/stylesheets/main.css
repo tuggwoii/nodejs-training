@@ -67,3 +67,39 @@ a.top-space-m {
     text-decoration: none;
     opacity: 1;
 }
+.space-bottom {
+    padding-bottom: 120px;
+}
+footer {
+    padding:30px 15px;
+    background-color: #0c121c;
+    font-size:14px;
+    color:#fff;
+}
+nav {
+    position: absolute;
+    bottom: 0;
+    height: 70px;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    left: 0;
+}
+nav a {
+    font-size:20px;
+    color:#fff;
+    height:70px;
+    padding: 20px;
+    display: inline-block;
+    transition: background .3s ease-in-out;
+    margin-left:-5px;
+}
+nav a:focus {
+    text-decoration:none;
+    color:#fff;
+}
+nav a:hover {
+    text-decoration:none;
+    background-color:#556;
+    color:#fff;
+}
