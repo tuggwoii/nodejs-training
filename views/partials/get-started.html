@@ -33,3 +33,51 @@
           <p class="top-space">- Then type <code>node server.js</code> open browser and then go to 127.0.0.1:9000 to see the result</p>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-12 section blue">
+        <h1>4. Nodejs module, imports(require), exports</h1>
+        <p class="top-space">- Understand nodejs module</p>
+        <p>- Imagine that this line of code exists as the first line of code <code>exports = module.exports = {}</code></p>
+        <p>- Imagine that <code>require</code> is <code>function (path) { return  module.exports; }</code></p>
+        <p>- Let's create file calc.js and put this code in:</p>
+        <p><code>exports.plus = function (a, b) {</code></p>
+        <p><code> return a + b;</code></p>
+        <p><code>}</code></p>
+        <p><code>exports.minus = function (a, b) {</code></p>
+        <p><code> return a - b;</code></p>
+        <p><code>}</code></p>
+        <p><code>module.exports.multiply = function (a, b) {</code></p>
+        <p><code> return a * b;</code></p>
+        <p><code>}</code></p>
+        <p><code>module.exports.divide = function (a, b) {</code></p>
+        <p><code> return doDivide(a, b);</code></p>
+        <p><code>}</code></p>
+        <p><code>function doDivide(a, b) {</code></p>
+        <p><code> return a / b;</code></p>
+        <p><code>}</code></p>
+        <p>- Then let's create file math.js and put this code in:</p>
+        <p><code>var math = require("./calc.js");</code></p>
+        <p><code>console.log(math.plus(1, 2));</code></p>
+        <p><code>console.log(math.plus(2, 1));</code></p>
+        <p><code>console.log(math.plus(2, 2));</code></p>
+        <p><code>console.log(math.devide(10, 2));</code></p>
+        <p>- Try to execute math.js file to see the result type: <code>node math</code> on command line tool</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 section grey left">
+        <h1>5. NPM</h1>
+        <p class="top-space">- What's npm? npm is the package manager for javascript platform.</p>
+        <p>- if you are .NET developer then, imagine it's nuget for javascript platform, OK?.</p>
+        <p>- Here is the link to learn more about NPM: <a style="color:#fff; text-decoration:underline" href="https://docs.npmjs.com/">https://docs.npmjs.com/</a></p>
+        <hr />
+        <h3>The command that we should know here:</h3>
+        <p>create package.json (initialize): type <code>npm init</code></p>
+        <p>install package: <code>npm install [packagename]</code></p>
+        <p>Let's try <code>npm install jquery</code></p>
+        <p>install package with version: <code>npm install [packagename]@[version]</code></p>
+        <p>Let's try <code>npm install jquery@1.11.1</code></p>
+        <p>Save package to packages.json <code>npm install jquery@1.11.1 --save-[flag](optional)</code></p>
+        <p>Update npm <code>npm install npm -g</code></p>
+    </div>
+</div>

@@ -29,7 +29,7 @@ a.top-space-m {
 }
 .section.blue {
     color:#fff;
-    background-color: #2d45c8;
+    background-color: #009ACD;
 }
 .section.grey {
     color:#fff;
@@ -63,7 +63,7 @@ a.top-space-m {
     opacity: 0.9 !important;
 }
 .round-button.blue {
-    background-color: #2d45c8;
+    background-color: #009ACD;
     border: 1px solid #fff;
 }
 .round-button:active, .round-button:focus{
