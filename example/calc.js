@@ -1,4 +1,6 @@
-﻿exports.plus = function (a, b) {
+﻿//var exports = module.exports = {}
+
+exports.plus = function (a, b) {
     return a + b;
 }
 
