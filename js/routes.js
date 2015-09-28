@@ -13,9 +13,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
           url: "/getstarted",
           templateUrl: "/views/partials/get-started.html",
       })
-      .state('state2', {
-          url: "/state2",
-          templateUrl: "/views/partials/state2.html"
+      .state('webserver', {
+          url: "/webserver",
+          templateUrl: "/views/partials/web-server.html"
       })
       .state('state2.list', {
           url: "/list",

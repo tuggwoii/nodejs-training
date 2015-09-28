@@ -1,0 +1,22 @@
+﻿<div class="row">
+    <div class="col-md-12 section left">
+        <h1>1. What is web server</h1>
+        <p class="top-space">
+            <strong>web server</strong> is an information technology that processes requests via HTTP, the basic network protocol used to distribute information on the World Wide Web. The term can refer either to the entire computer system, an appliance, or specifically to the software that accepts and supervises the HTTP requests.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 section grey left">
+        <h1>2. Build simple web server with node.js</h1>
+        <p class="top-space">- First thing we must know is, this line of code <code>var http = require('http');</code> it's get http node module from node.js</p>
+        <p class="top-space">- The next thing is defind port <code>const port = 8080;</code></p>
+        <p class="top-space">- Then create the server and requestListener <code>var server = http.createServer(requestListener);</code></p>
+        <p class="top-space">- <code>requestListener</code> is a fuction to receive the request from the client. it's look like this: <code>function requestListener (request, response) { }</code></p>
+        <p class="top-space">- The last step is just start the server to listen the request <code>server.listen(port, function () { });</code></p>
+        <hr />
+        <h3>So, how to handle deferece path/routes?</h3>
+        <p class="top-space">- Nothing special here, just put if else or conditions statement!</p>
+        <p class="top-space">- See the file from here <a class="underline white nohover" target="_blank" href="/example/ch2/response-server.js">response-server.js</a>, let's try to run it!</p>
+    </div>
+</div>

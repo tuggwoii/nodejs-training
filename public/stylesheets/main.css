@@ -112,3 +112,25 @@ nav a.active {
     background-color:#556;
     color:#fff;
 }
+footer.fix-bottom {
+    position:absolute;
+    width: 100%;
+    bottom:0;
+}
+nav.line {
+    height: 10px;
+    background-color: #0c121c;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    top: -10px;
+}
+.white {
+    color:#fff;
+}
+.underline {
+    text-decoration:underline;
+}
+a.nohover {
+    color:#fff;
+}
