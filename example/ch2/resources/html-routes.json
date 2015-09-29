@@ -1,0 +1,5 @@
+[
+    { "url": "/", "response": "resources/index.html" },
+    { "url": "/about", "response": "resources/about.html" },
+    { "url": "/contact", "response": "make 500" }
+]

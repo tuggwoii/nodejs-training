@@ -1,4 +1,4 @@
-﻿<div class="row">
+<div class="row">
     <div class="col-md-12 section left">
         <h1>1. What is web server</h1>
         <p class="top-space">
@@ -15,8 +15,54 @@
         <p class="top-space">- <code>requestListener</code> is a fuction to receive the request from the client. it's look like this: <code>function requestListener (request, response) { }</code></p>
         <p class="top-space">- The last step is just start the server to listen the request <code>server.listen(port, function () { });</code></p>
         <hr />
-        <h3>So, how to handle deferece path/routes?</h3>
+        <h3>So, how we going to handle deference path/routes?</h3>
         <p class="top-space">- Nothing special here, just put if else or conditions statement!</p>
         <p class="top-space">- See the file from here <a class="underline white nohover" target="_blank" href="/example/ch2/response-server.js">response-server.js</a>, let's try to run it!</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 section blue left">
+        <h1>3. Dynamic routes</h1>
+        <p class="top-space">- Actually this topic is up to your idea and how to apply your knowledge</p>
+        <p class="top-space">- This article will show an example of doing dynamic routes by using json file</p>
+        <p class="top-space">- First just creat json file name it as routes.json</p>
+        <p class="top-space">- Put an array object in to the file like this: <a class="underline white nohover" target="_blank" href="/example/ch2/resources/routes.json">routes.json</a></p>
+        <p class="top-space">- Using fs module (File Stream Library) <code>var fs = require('fs');</code></p>
+        <p class="top-space">- Read json file <code>var routes = JSON.parse(fs.readFileSync('resources/routes.json', 'utf8'));</code></p>
+        <p class="top-space">- Create function to handle request by getting route response from routes object</p>
+        <p class="top-space">- See the final code here: <a class="underline white nohover" target="_blank" href="/example/ch2/dynamic-routes.js">dynamic-routes.js</a></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 section left">
+        <h1>4. Response files</h1>
+        <p class="top-space">- It's similar to response as a text, the difference is jsut response header</p>
+        <p class="top-space">- The idea is: read the text in the html file and then response, very simple</p>
+        <p class="top-space">- Still using this <code>var fs = require('fs');</code> library</p>
+        <p class="top-space">- See the final code here: <a target="_blank" href="/example/ch2/response-file.js">response-file.js</a></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 section grey left">
+        <h1>5. Handle http methodes (verbs)</h1>
+        <p class="top-space">- Actually this topic is up to your idea and how to apply your knowledge</p>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 section blue left">
+        <h1>6. Express</h1>
+        <p class="top-space">- Actually this topic is up to your idea and how to apply your knowledge</p>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 section left">
+        <h1>7. Workshop</h1>
+        <p class="top-space">- Create node.js serve that can handle these requirement: </p>
+        <p class="top-space">1. if user request get on url '/' display image</p>
+        <p class="top-space">2. if user request post on url '/' store post data as a json file and response that file back</p>
+        <p class="top-space">3. if user request put with any url, then dynamic create that routes (next get request must display whatever that prove this route was created), if it's exist response whatever to let user know</p>
+        <p class="top-space">4. if user request delete with any url, delete that url from routes (next get request must display 404), if it's not exist response whatever to let user know</p>
     </div>
 </div>

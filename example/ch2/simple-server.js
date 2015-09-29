@@ -1,8 +1,8 @@
-﻿//GET HTTP NODE MODULES
+//GET HTTP NODE MODULES
 var http = require('http');
 
 //DEFINE PORT
-const port = 8080;
+const port = 5000;
 
 //CREATE SERVER
 var server = http.createServer(requestListener);

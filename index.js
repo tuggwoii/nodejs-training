@@ -29,7 +29,6 @@ app.get('*', function (request, response) {
     response.status(404).render('pages/404');
 });
 
-
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
