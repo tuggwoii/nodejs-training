@@ -34,6 +34,9 @@ function handleRoutes(url, response) {
         successHeader(response)
         responseFile(response, route);
     }
+    else if(url === '/logo.png') {
+        responseBinaryFile(response);
+    }
     else {
         notFoundHeader(response);
         responseText(response, 'File not found');
@@ -62,6 +65,12 @@ function responseFile (response, route) {
 			response.end(content, 'utf-8');
 		}
 	});
+}
+
+function responseBinaryFile (response) {
+    var img = fs.readFileSync('resources/logo.png');
+    response.writeHead(200, {'Content-Type': 'image/png' });
+    response.end(img, 'binary');
 }
 
 startServer(port);

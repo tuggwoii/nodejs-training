@@ -44,23 +44,27 @@
 </div>
 <div class="row">
     <div class="col-md-12 section grey left">
-        <h1>5. Handle http methodes (verbs)</h1>
-        <p class="top-space">- Actually this topic is up to your idea and how to apply your knowledge</p>
-
+        <h1>5. Handle http methods (verbs)</h1>
+        <p class="top-space">- It's very simple just using this code: <code>request.method</code> in the request handle method</p>
+        <p class="top-space">- But the harder part is how we going to get the post data?</p>
+        <p class="top-space">- For get the post data using this module: <code>var qs = require('querystring');</code></p>
+        <p class="top-space">- How to handle post data see the example here: <a target="_blank" href="/example/ch2/http-method.js">http-method.js</a></p>
     </div>
 </div>
 <div class="row">
     <div class="col-md-12 section blue left">
         <h1>6. Express</h1>
-        <p class="top-space">- Actually this topic is up to your idea and how to apply your knowledge</p>
-
+        <p class="top-space">- What is express? Express is one of the popular node module that we use to create webserver</p>
+        <p class="top-space">- Official site: <a class="underline white nohover" target="_blank" href="http://expressjs.com/">http://expressjs.com/</a></p>
+        <p>- Install: <code>npm install express --save</code></p>
+        <p>- See this file to get started: <a class="underline white nohover" target="_blank" href="/example/ch2/express.js">express.js</a></p>
     </div>
 </div>
 <div class="row">
     <div class="col-md-12 section left">
         <h1>7. Workshop</h1>
-        <p class="top-space">- Create node.js serve that can handle these requirement: </p>
-        <p class="top-space">1. if user request get on url '/' display image</p>
+        <h3>Create node.js serve that can handle these requirement: </h3>
+        <p class="top-space">1. if user request get on url '/' display image with form to input name and telephone number</p>
         <p class="top-space">2. if user request post on url '/' store post data as a json file and response that file back</p>
         <p class="top-space">3. if user request put with any url, then dynamic create that routes (next get request must display whatever that prove this route was created), if it's exist response whatever to let user know</p>
         <p class="top-space">4. if user request delete with any url, delete that url from routes (next get request must display 404), if it's not exist response whatever to let user know</p>
