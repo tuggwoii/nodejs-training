@@ -7,7 +7,8 @@ function writeFile (fileName, content) {
         if (err) {
             console.log(err);
         }
-        console.log('Write file ' + fileName + ' success!');
+        console.log('Write file ' +
+            fileName + ' success!');
     });
 }
 
