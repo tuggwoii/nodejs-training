@@ -17,11 +17,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
           url: "/webserver",
           templateUrl: "/views/partials/web-server.html"
       })
-      .state('state2.list', {
-          url: "/list",
-          templateUrl: "views/partials/state2.list.html",
-          controller: function ($scope) {
-              $scope.things = ["A", "Set", "Of", "Things"];
-          }
+      .state('webproject', {
+          url: "/webproject",
+          templateUrl: "views/partials/web-project.html",
       });
 });
