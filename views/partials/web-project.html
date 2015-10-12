@@ -4,7 +4,7 @@
       <blockquote class="top-space">On this topic we will talk about web project structure</blockquote>
       <blockquote class="top-space">Test code quality and correction by linter tool before deploy (we can say build like other platform)</blockquote>
       <blockquote class="top-space">Create a unit test for the project</blockquote>
-      <blockquote class="top-space">Node module to help us to create a web project</blockquote>
+      <blockquote class="top-space">Node module that help us create a web project</blockquote>
   </div>
 </div>
 
@@ -28,10 +28,45 @@
 <div class="row">
   <div class="col-md-12 section blue left">
       <h1>2. Auto create project structure</h1>
-      <p class="top-space">- If you understand chaper 1, then you can use that knowledge to create your own automate tool</p>
+      <p class="top-space">- If you understand chapter 1, then you can use that knowledge to create your own automate tool</p>
       <p class="top-space">- On this part the module that we use is file stream library <code>var fs = require('fs');</code></p>
       <p class="top-space">- Let's create file js and name it as web.js</code></p>
-      <p class="top-space">- See the file here <a hrewf="">web.js</a></code></p>
-      <p class="top-space">- Try to run it! <a hrewf="">web.js</a></code></p>
+      <p class="top-space">- See the completed file here <a href="example/ch3/resources/web.js" target="_blank" class="underline white nohover">web.js</a></code></p>
+      <p class="top-space">- Try to run it! <code>node web</code></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 section left">
+      <h1>3. ESLint</h1>
+      <p class="top-space">- Official site <a href="http://eslint.org/">http://eslint.org/</a></p>
+      <p class="top-space">- What is ESLint? Tool for test code quality and correction</p>
+      <p class="top-space">- Install grunt (Required module)<code>npm install -g grunt-cli</code></p>
+      <p class="top-space">- Install grunt on project (Required module) <code>npm install grunt --save-dev</code></p>
+      <p class="top-space">- Install load-grunt-tasks (Required module) <code>npm install load-grunt-tasks --save-dev </code></p>
+      <p class="top-space">- Install eslint <code>npm install grunt-eslint --save-dev</code></p>
+      <p class="top-space">- Create gruntfile.js put some code like this <a target="_blank" href="example/ch3/resources/Gruntfile.js">Gruntfile.js</a></p>
+      <p class="top-space">- Setup rules (Copy from example/ch3/resources/config)</p>
+      <p class="top-space">- Run eslint by type <code>grunt test</code></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 section grey left">
+      <h1>4. Unit test</h1>
+      <p class="top-space">- Official site <a class="underline white nohover" href="http://eslint.org/">http://eslint.org/</a></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 section blue left">
+      <h1>5. Yeoman.io</h1>
+      <p class="top-space">- official site <a class="underline white nohover" href="http://yeoman.io/">yeoman.io</a></p>
+      <p class="top-space">- What is Yeoman.io? one of the popular node module to create web project</p>
+      <p class="top-space">- How it work? Like I show you on section [2] but more complex and have more option</p>
+      <p class="top-space">- First just install it globally <code>npm install -g yo</code></p>
+      <p class="top-space">- Install generator <code>npm install -g generator-webapp</code></p>
+      <p class="top-space">- Install grunt <code>npm install -g grunt-cli</code></p>
+      <p class="top-space">- Create project type <code>yo webapp</code></p>
   </div>
 </div>
