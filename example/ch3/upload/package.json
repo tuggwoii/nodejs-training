@@ -1,0 +1,14 @@
+{
+  "name": "ajax-file-upload",
+  "version": "1.0.0",
+  "description": "upload multiple files",
+  "main": "upload.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "formidable": "^1.0.17"
+  }
+}

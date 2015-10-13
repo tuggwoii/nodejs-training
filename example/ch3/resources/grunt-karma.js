@@ -3,13 +3,6 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    eslint: {
-        options: {
-            configFile: 'config/eslint.json',
-            rulePaths: ['config/rules']
-        },
-        target: ['scripts/**/*.js']
-    },
     karma: {
         unit: {
             configFile: 'config/karma.conf.js'
@@ -18,8 +11,7 @@ module.exports = function(grunt) {
   });
     
   require('load-grunt-tasks')(grunt);
-  grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-karma');
-  grunt.registerTask('test', ['eslint','karma']);
+  grunt.registerTask('test', ['karma']);
     
 };

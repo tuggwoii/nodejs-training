@@ -27,9 +27,9 @@
 
 <div class="row">
   <div class="col-md-12 section blue left">
-      <h1>2. Auto create project structure</h1>
-      <p class="top-space">- If you understand chapter 1, then you can use that knowledge to create your own automate tool</p>
-      <p class="top-space">- On this part the module that we use is file stream library <code>var fs = require('fs');</code></p>
+      <h1>2. Auto create project</h1>
+      <p class="top-space">- If you understand chapter 1, then you can use that knowledge to create your own automate tool!</p>
+      <p class="top-space">- On this part the module that we use is file system library <code>var fs = require('fs');</code></p>
       <p class="top-space">- Let's create file js and name it as web.js</code></p>
       <p class="top-space">- See the completed file here <a href="example/ch3/resources/web.js" target="_blank" class="underline white nohover">web.js</a></code></p>
       <p class="top-space">- Try to run it! <code>node web</code></p>
@@ -45,7 +45,7 @@
       <p class="top-space">- Install grunt on project (Required module) <code>npm install grunt --save-dev</code></p>
       <p class="top-space">- Install load-grunt-tasks (Required module) <code>npm install load-grunt-tasks --save-dev </code></p>
       <p class="top-space">- Install eslint <code>npm install grunt-eslint --save-dev</code></p>
-      <p class="top-space">- Create gruntfile.js put some code like this <a target="_blank" href="example/ch3/resources/Gruntfile.js">Gruntfile.js</a></p>
+      <p class="top-space">- Create gruntfile.js put some code like this <a target="_blank" href="example/ch3/resources/grunt-eslint.js">Gruntfile.js</a></p>
       <p class="top-space">- Setup rules (Copy from example/ch3/resources/config)</p>
       <p class="top-space">- Run eslint by type <code>grunt test</code></p>
   </div>
@@ -53,8 +53,16 @@
 
 <div class="row">
   <div class="col-md-12 section grey left">
-      <h1>4. Unit test</h1>
-      <p class="top-space">- Official site <a class="underline white nohover" href="http://eslint.org/">http://eslint.org/</a></p>
+      <h1>4. Unit test with Karma & jasmine</h1>
+      <p class="top-space">- Karma official site <a class="underline white nohover" href="http://karma-runner.github.io/">http://karma-runner.github.io/</a></p>
+      <p class="top-space">- Jasmine official site <a class="underline white nohover" href="http://jasmine.github.io/">http://jasmine.github.io/</a></p>
+      <p class="top-space">- What is Karma? Automate test tool, run unit test for javascript, simulate app environment</p>
+      <p class="top-space">- What is Jasmine? Javascript library that help on writing unit test for Javascript platform.</p>
+      <p class="top-space">- Install karma <code>npm install grunt-karma --save-dev</code></p>
+      <p class="top-space">- Install jasmine for karma<code>npm install karma-jasmine --save-dev</code></p>
+      <p class="top-space">- Install chrome browser for karma (optional depend on your setting) <code>npm install karma-chrome-launcher --save-dev</code></p>
+      <p class="top-space">- Setup karma.conf.js (Copy from example/ch3/resources/config)</p>
+      <p class="top-space">- Setup Gruntfile.js: <a target="_blank" class="underline white nohover" href="example/ch3/resources/grunt-karma.js">Gruntfile.js</a></p>
   </div>
 </div>
 

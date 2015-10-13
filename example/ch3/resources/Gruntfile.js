@@ -9,11 +9,17 @@ module.exports = function(grunt) {
             rulePaths: ['config/rules']
         },
         target: ['scripts/**/*.js']
+    },
+    karma: {
+        unit: {
+            configFile: 'config/karma.conf.js'
+        }
     }
   });
     
   require('load-grunt-tasks')(grunt);
   grunt.loadNpmTasks('grunt-eslint');
-  grunt.registerTask('test', ['eslint']);
+  grunt.loadNpmTasks('grunt-karma');
+  grunt.registerTask('test', ['eslint','karma']);
     
 };
