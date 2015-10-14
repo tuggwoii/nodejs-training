@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "formidable": "^1.0.17"
+    "formidable": "^1.0.17",
+    "socket.io": "^1.3.7"
   }
 }
