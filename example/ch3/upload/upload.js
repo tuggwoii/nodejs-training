@@ -5,33 +5,57 @@ var app = require('http').createServer(handler);
 
 var io = require('socket.io')(app);
 var fs = require('fs');
+var request = require('request');
+
 
 
 function handler (req, res) { 
      if (req.method === 'OPTIONS') {
           var headers = {};
-          // IE8 does not allow domains to be specified, just the *
-          // headers["Access-Control-Allow-Origin"] = req.headers.origin;
           headers["Access-Control-Allow-Origin"] = "*";
           headers["Access-Control-Allow-Methods"] = "POST, GET, PUT, DELETE, OPTIONS";
           headers["Access-Control-Allow-Credentials"] = false;
-          headers["Access-Control-Max-Age"] = '86400'; // 24 hours
+          headers["Access-Control-Max-Age"] = '86400';
           headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept";
           res.writeHead(200, headers);
           res.end();
      }
      else if (req.url == '/upload' && req.method.toLowerCase() == 'post') {
         var form = new formidable.IncomingForm();
-        form.uploadDir = "/Projects/Umbraco 7.3/Umbraco 7.3/media/upload";
+		var fileName;
+		var filePath;
+        form.uploadDir = "/Umbraco/Umbraco 7.3/Umbraco 7.3/media/upload";
         form.keepExtensions = true;
-        form.parse(req, function(err, fields, files) {
+        try {
+            fs.mkdirSync( form.uploadDir);
+        }
+        catch (e) {
+            if ( e.code != 'EEXIST' ) console.log('error: '+ e.message);
+        }
+		form.parse(req, function(err, fields, files) {
           var headers = {};
           headers["content-type"] = "application/json";
           headers["Access-Control-Allow-Origin"] = "*";
-          res.writeHead(200, headers);
-          res.end('{"success": true}');
+		  var postData = '?name=' + fileName+'&url=' + filePath;
+		  var postUrl = 'http://localhost:4999/umbraco/api/FileApi/PostUploads' + postData;
+		  request.post(postUrl, { },
+				function (error, response, body) {
+					if (!error && response.statusCode == 200) {
+						res.writeHead(200, headers);
+						res.end('{"success": true}');
+						console.log(body)
+					}
+					else {
+						res.writeHead(500, headers);
+						res.end('{"success": false}');
+					}
+				}
+		  );
+          
         });
         form.on('file', function(field, file) {
+			fileName = file.name;
+			filePath = '/media/upload/' + file.name;
             fs.rename(file.path, form.uploadDir + "/" + file.name);
         });
         form.on('progress', function(bytesReceived, bytesExpected) {
