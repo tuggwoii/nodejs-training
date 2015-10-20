@@ -5,8 +5,20 @@
 		<script src="node_modules/angular/angular.min.js"></script>
 	</head>
 	<body ng-app="app">
-		<p>web project</p>
+		<div ng-controller="RootController">
+			<nav ng-controller="MenuController"></nav>
+			<div ng-tak></div>
+			<div class="ng-tak"></div>
+			<ng-tak></ng-tak>
+		</div>
 		<script src="scripts/main.js"></script>
 		<script src="scripts/app.js"></script>
+		<!-- Services -->
+		<script src="scripts/shared/services/menu-service.js"></script>
+		<!-- Directives -->
+		<script src="scripts/shared/directives/simple-directive.js"></script>
+		<!-- Controllers -->
+		<script src="scripts/shared/controllers/root-controller.js"></script>
+		<script src="scripts/shared/controllers/menu-controller.js"></script>
 	</body>
 </html>

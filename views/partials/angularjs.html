@@ -85,7 +85,7 @@
 	  <p>1. add ng-app to html element that we want to use AngularJS script</code></p>
  	  <p>2. Remember that only 1 ng-app is allowed in 1 pages</code></p>
 	  <p>3. So if you want to use in entire page the best choice is add it on <code>body</code> element</p>
-  	  <p>4. Added it as an attribute like this <code>&lt;body ng-app="appName" &gt;</code></p>
+  	  <p>4. Added it as an attribute like this <code>&lt;body ng-app="appName"&gt;</code></p>
 	  <p>5. After add you will get error message like this <code>Uncaught Error: [$injector:modulerr] http://errors.angularjs.org/1.4.7/$injector/modulerr?p0=app&p1=Error%3A%20%…2F%2F127.0.0.1%3A5000%2Fnode_modules%2Fangular%2Fangular.min.js%3A19%3A463)</code></p>
 	  <p>6. Create .js file to connect with angular module that we attach on html element. I wil create file and name it as app.js</p>
 	  <p>7. Place this code in the file <code>var app = angular.module('appName', [ ]);</code> then reference the script file in to the html file under the AngularJs script</p>
@@ -94,15 +94,93 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-12 section left">
+  <div class="col-md-12 section grey left">
       <h1>5. Start using AngularJS</h1>
-	  <blockquote class="top-space">5.0 Inject module</blockquote>
-	  <blockquote class="top-space">5.1 Controller directive</blockquote>
- 	  <blockquote class="top-space">5.2 Useful View render/compile Directives</blockquote>
-	  <blockquote class="top-space">5.3 Form Directives</blockquote>
-	  <blockquote class="top-space">5.4 Custom Directive</blockquote>
-	  <blockquote class="top-space">5.5 Create Services</blockquote>
-	  <blockquote class="top-space">5.6 Inject Services</blockquote>
+	  
+	  <blockquote class="top-space-m">5.0 Inject module</blockquote>
+	  <p>- Example how to inject module <code>var app = angular.module('appName', [ 'ngAnimate', 'ui.router']);</code></p>
+	  <p>- From the example mean: inject 2 module in to appName module</p>
+	  <p>- We must reference .js file of the module on the page</p>
+	  
+	  
+	  <blockquote class="top-space-m">5.1 Controller directive (ng-controller)</blockquote>
+	  <p>- Example how to add controller in to html element <code>&lt;div ng-controller="RootController"&gt;&lt;/div&gt;</code></p>
+	  <p>- When we add controller it's mean that, we scope and group html element to controll them, it's include all child element</p>
+	  <p>- Example: create file name root-controller.js and place code below inside the file, then reference it on the page</p>
+	  <img src="img/controller.png"/>
+	  
+	  
+	  <blockquote class="top-space-m">5.2 AngularJS useful dependency injection</blockquote>
+	  <p>- <code>$scope</code> the main model that we inject into controller</p>
+	  <p>- <code>$rootScope</code> the scope that go through all controllers</p>
+	  <p>- <code>$element</code> keep the html element under the controller</p>
+	  <p>- <code>$timeout</code> use for create timeout function (similar to setTimeout())</p>
+	  <p>- <code>a lot here ...</code></p>
+	  <p>- Example: how to inject dependency into controller</p>
+	  <img src="img/dependency.png"/>
+	  
+	  
+	  <blockquote class="top-space-m">5.3 Event directives</blockquote>
+	  <p>- <code>ng-click</code> fire on click or tab element</p>
+	  <p>- <code>ng-change</code> fire on change the value on input box</p>
+	  <p>- <code>a lot here ...</code></p>
+ 	  
+	  
+	  <blockquote class="top-space-m">5.4 Useful View render/compile Directives</blockquote>
+	  <p>- <code>ng-include</code> load html file to append under the biding element, attribute value must be url of the file</p>
+	  <p>- <code>ng-show, ng-hide</code> show or hide element, attribute value must be boolean</p>
+	  <p>- <code>ng-if</code> remove or create element, attribute value must be boolean</p>
+	  <p>- <code>ng-repeat</code> repeat create element, attribute value must be array</p>
+	  
+	  
+	  <blockquote class="top-space-m">5.5 Form Directives</blockquote>
+	  <p>- <code>ng-model</code> use for recieve value from input box, attribute value must be boject that we want to assign value to</p>
+	  
+	  
+	  <blockquote class="top-space-m">5.6 Custom Directive</blockquote>
+	  <p>- Directive is a magic that transform simple html into functional html </p>
+	  <p>- Directive is detect by 3 type call as <code>restrict</code></p>
+	  <p>- Restrict: A = attribute, E = element, C = class</p>
+	  <p>- We can combination restrict like AE EC AEC if one of them are meet then it will work</p>
+	  <p>- If no restrict it will set to AE</p>
+	  <p>- If the html match the restrict it will transfrom to what we write on directive</p>
+	  <p>- learn more here <a class="underline white nohover" href="https://docs.angularjs.org/guide/directive">https://docs.angularjs.org/guide/directive</a></p>
+	  <img src="img/directive.png"/>
+	  
+	  
+	  <blockquote class="top-space-m">5.7 Create Services</blockquote>
+	  <p>- Create .js file name it as menu-service.js</p>
+	  <p>- Write code below into the file</p>
+	  <img src="img/services.png"/>
+	  <p>- Reference it on the page before using it (on the top of the file that use this service on html page)</p>
+	  
+	  
+	  <blockquote class="top-space-m">5.8 Inject Services</blockquote>
+	  <p>- Very easy, just write the service name in the function parameter, see the image: </p>
+	  <img src="img/services-inject.png"/>
   </div>
+</div>
+<div class="row">
+<div class="col-md-12 section blue left">
+    <h1>6. Workshop</h1>
+	<p class="top-space">- From chapter 3</p>
+	<p class="top-space">- Copy the starter project from /example/ch4/project</p>
+    <p class="top-space">- Create web project by using node.js</p>
+    <p class="top-space">- The page is display your profile</p>
+    <p class="top-space">- The profile should at lease have name, image, email, telephone number (more than this will be great)</p>
+    <p class="top-space">- The web page must have save button</p>
+    <p class="top-space">- When click save data must save somewhere</p>
+    <p class="top-space">- After save on the next reload, page must show the latest save data</p>
+	<blockquote class="top-space">Extra requirement</blockquote>
+	<p class="top-space">* using angular js to complete the task</p>
+	<p class="top-space">** it must have at lease 1 controller, 1 service</p>
+	<p class="top-space">*** code must pass eslint</p>
+	<p class="top-space">**** write unit test at lease 1 file</p>
+	
+	<blockquote class="top-space">The next chapter we will deploy our workshop</blockquote>
+	<p>- Register 1 github account</p>
+	<p>- Register 1 heroku account</p>
+	<p>- Bring your workshop project</p>
+</div>
 </div>
 
