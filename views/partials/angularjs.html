@@ -1,0 +1,108 @@
+<div class="row">
+  <div class="col-md-12 section left">
+      <h1>AngularJS</h1>
+      <blockquote class="top-space-m">On this topic we will talk about why do we use AngularJS on node.js web project</blockquote>
+      <blockquote class="top-space">Basic JavaScript</blockquote>
+      <blockquote class="top-space">Setup AngularJS</blockquote>
+      <blockquote class="top-space">Start create web application with AngularJS</blockquote>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 section grey left">
+      <h1>1. What's AngularJS and Why AngularJS?</h1>
+      <p class="top-space">- Let's start with ASP.NET MVC, the main logic cod is C# and the view render is ASPX or Razor</p>
+      <p class="top-space">- What's about php, the the main logic code is php and view render is still php</p>
+      <p class="top-space">- Node.js main logic code is JavaScript and view render is JavaScript</p>
+	  <blockquote class="top-space">It's look normal so what's the problem?</blockquote>
+	  <p>- If you try to use JavaScript to creat your own framework you will get a hard time to doing that</p>
+	  <p>- Same as if you try to render the view with javascript</p>
+	  <p>- So we need a good frame work here</p>
+	  <p>- For me the solution will be AngularJs, because it's have 2 things that I want in 1 js library</p>
+	  <p>- But the combination with mutiple js library still OK for node.js</p>
+	  <blockquote class="top-space">So what's AngularJS</blockquote>
+	  <p>- MVC JavaScript framework</p>
+	  <p>- Dynamic HTML, HTML render/compiler</p>
+	  <p>- Data binding</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 section left">
+      <h1>2. Before start AngularJS what you should know</h1>
+      <p class="top-space-m">HTML</p>
+	  <p>JavaScript</p>
+	  <p>CSS</p>
+	  <blockquote class="top-space">AngularJS useful features</blockquote>
+	  <p>- 2 ways data binding</p>
+	  <p>- MVC framework, Model View Controller</p>
+	  <p>- Scope, context </p>
+	  <p>- HTML render/compiler </p>
+	  <blockquote class="top-space">AngularJS Conceptual</blockquote>
+	  <p>- Template: HTML</p>
+	  <p>- Scope: Context</p>
+	  <p>- model: JavaScript object</p>
+	  <p>- Directives: HTML transform</p>
+	  <p>- Controller: Make the scope (group) of HTML element</p>
+	  <p>- Dependency: the services that we reference into AngularJS Controller, Services</p>
+	  <p>- Module: Group of dependency, 3rd party component</p>
+	  <p>- Service: Reusable business logic</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 blue section left">
+      <h1>3. Basic JavaScript</h1>
+	  <h2>3.1 Basic variable</h2>
+      <p>- Create variable <code>var num;</code></p>
+	  <p>- Create int variable <code>var num = 1;</code></p>
+	  <p>- Create string variable <code>var str = 'hi';</code></p>
+	  <h2>3.2 Array</h2>
+      <p>- Create array variable <code>var arr = [];</code></p>
+	  <p>- Create array variable with size <code>var arr = new Array(5);    // Bad way, the new keyword complicates your code and produces nasty side effects</code></p>
+	  <p>- Create array variable with value <code>var fruits = ['Banana', 'Orange', 'Apple', 'Mango'];</code></p>
+	  <p>- Add object to array <code>arr.push('m');</code></p>
+	  <p>- Remove object from array at specific index  <code> arr.splice(index, 1); //second parameter mean how many item to remove start at index</code></p>
+	  <p>- Loop through array  <code>for (var index = 0; index < arr.length &#59; index++) { var current = arr[i] &#59; } </code></p>
+	  <p>- Filter array  <code>var result = arr.filter(function (item) { if(item.id === 1) { return item; } }); //Get object in array that have id property exactly equal to 1</code></p>
+	  <h2>3.3 Object variable</h2>
+	  <p>- Create object variable <code>var obj = { };</code></p>
+	  <p>- Create object variable with property <code>var obj = { name: 'Tak' };</code></p>
+	  <p>- Create property of object <code>obj.address = '147/300';</code></p>
+	  <p>- Create method for object <code>obj.changeName = function (newName) { this.name = newName; }</code></p>
+	  <h2>3.4 Function</h2>
+	  <p>- Create function <code>function cal () { }</code></p>
+	  <p>- Create function with return <code>function sayHi () { return 'hi'; }</code></p>
+	  <p>- Create function with parameter <code>function calc (a, b) { return a + b; }</code></p>
+	  <h2>3.5 Class</h2>
+	  <p>- Create class <code>function Person () { }</code></p>
+	  <p>- Create class with constructor <code>function Person (name, email) { this.name = name; this.email = email; }</code></p>
+	  <p>- Create object from class <code>var p = new Person('Tak','syamkong@manaosoftware.com');</code></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 section left">
+      <h1>4. Setup AngularJS</h1>
+	  <p class="top-space-m">Easy like previous chapter <code>npm install angular --save</code></p>
+	  <blockquote class="top-space">Start with <code>ng-app</code> one of the AngularJS directive</blockquote>
+	  <p>1. add ng-app to html element that we want to use AngularJS script</code></p>
+ 	  <p>2. Remember that only 1 ng-app is allowed in 1 pages</code></p>
+	  <p>3. So if you want to use in entire page the best choice is add it on <code>body</code> element</p>
+  	  <p>4. Added it as an attribute like this <code>&lt;body ng-app="appName" &gt;</code></p>
+	  <p>5. After add you will get error message like this <code>Uncaught Error: [$injector:modulerr] http://errors.angularjs.org/1.4.7/$injector/modulerr?p0=app&p1=Error%3A%20%…2F%2F127.0.0.1%3A5000%2Fnode_modules%2Fangular%2Fangular.min.js%3A19%3A463)</code></p>
+	  <p>6. Create .js file to connect with angular module that we attach on html element. I wil create file and name it as app.js</p>
+	  <p>7. Place this code in the file <code>var app = angular.module('appName', [ ]);</code> then reference the script file in to the html file under the AngularJs script</p>
+	  <p>8. Error message must disappear and we'll done on setup AngularSs</p>
+	  <p>* In the array we can inject module into current module I will talk later <code>var app = angular.module('appName', [ 'inject_module', 'inject_otherModule' ]);</code></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 section left">
+      <h1>5. Start using AngularJS</h1>
+	  <blockquote class="top-space">5.0 Inject module</blockquote>
+	  <blockquote class="top-space">5.1 Controller directive</blockquote>
+ 	  <blockquote class="top-space">5.2 Useful View render/compile Directives</blockquote>
+	  <blockquote class="top-space">5.3 Form Directives</blockquote>
+	  <blockquote class="top-space">5.4 Custom Directive</blockquote>
+	  <blockquote class="top-space">5.5 Create Services</blockquote>
+	  <blockquote class="top-space">5.6 Inject Services</blockquote>
+  </div>
+</div>
+

@@ -20,5 +20,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       .state('webproject', {
           url: "/webproject",
           templateUrl: "views/partials/web-project.html",
+      })
+	  .state('angularjs', {
+          url: "/angularjs",
+          templateUrl: "views/partials/angularjs.html",
       });
 });

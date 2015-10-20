@@ -14,6 +14,12 @@ p.bigger {
 p.top-space {
     margin-top: 20px;
 }
+p.top-space-m {
+    margin-top: 40px;
+}
+blockquote.top-space-m {
+    margin-top: 40px;
+}
 a.top-space {
     margin-top: 20px;
 }
