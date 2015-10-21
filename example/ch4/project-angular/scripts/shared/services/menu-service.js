@@ -1,5 +1,5 @@
 app.factory('MenuService', function () {
-	return {
+    return {
 		getMenu: function () {
 			return [
 				{ id: 1, title: 'Home', url: '/' },

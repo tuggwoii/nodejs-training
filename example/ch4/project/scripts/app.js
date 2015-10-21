@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngAnimate', 'ui.router']);
+﻿var app = angular.module('app', ['ngAnimate', 'ui.router']);
 var sys = {
     onInit: function () {
         $(document).ready(this.onReady);

@@ -1,6 +1,6 @@
 app.directive('ngTak', function() {
   return {
-	//restrict: 'AEC',
+    //restrict: 'ECA',
     template: '<p>Tak</p>',
 	replace:true
     //templateUrl: 'my-customer.html'

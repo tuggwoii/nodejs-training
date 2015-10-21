@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Directives</title>
+    <script src="jQuery.js"></script>
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+    <script src="bootstrap.js"></script>
+    <link href="bootstrap.css" rel="stylesheet"/>
+</head>
+<body ng-app="directive">
+    <div ng-controller="MyModalCtrl">
+        MyModalCtrl
+        <div my-modal></div>
+        <div my-isolate-modal message-from-parent="my lovely child" on-submit="kittySubmit"></div>
+    </div>
+</body>
+</html>
