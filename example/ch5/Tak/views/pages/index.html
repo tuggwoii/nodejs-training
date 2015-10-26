@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tak Profile</title>
+        <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet" />
+        <link href="css/animate.css" rel="stylesheet" />
+	</head>
+	<body ng-controller="RootController">
+        <header>
+            <nav>
+                <i class="fa fa-edit" ng-click="onEditClick()"></i>
+            </nav>
+        </header>
+		<div class="container-fluid" ng-controller="ProfileController">
+            <div class="row cover">
+                <img src="images/cover.png"/>
+                <div class="image-container animated bounceInUp">
+                    <div class="image-border">
+                        <img ng-src="{{model.Image}}" />
+                    </div>
+                </div>
+            </div>
+            <div class="row profile">
+                <div class="col-md-12 animated fadeInUp">
+                    <div class="profile-detail">
+                        <div class="name"><i class="fa fa-user"></i> {{model.Name}}</div>
+                        <div class="general-detail">
+                            <div class="general">
+                                <span class="label">
+                                    <i class="fa fa-envelope-o"></i>
+                                    <span class="label-text">E-mail: </span>
+                                </span>
+                                <span class="value">{{model.Email}}</span>
+                            </div>
+                            <div class="general">
+                                <span class="label"><i class="fa fa-mobile"></i><span class="label-text">Telephone: </span></span>
+                                <span class="value">{{model.Telephone}}</span>
+                            </div>
+                        </div>
+                        <div class="skills">
+                            <h2><i class="fa fa-cogs"></i> Skills</h2>
+                            <ul>
+                                <li ng-repeat="skill in model.skills"><i class="fa fa-certificate"></i> {{skill.Skill}}</li>
+                            </ul>
+                        </div>
+                        <div class="button-container">
+                            <button class="btn btn-success" ng-click="edit()"><i class="fa fa-edit"></i> Edit</button>
+                            <button class="btn btn-primary" ng-click="checkConnection()"><i class="fa fa-hacker-news"></i> Check Connection</button>
+                        </div>
+                        <div class="notifications">
+                            <div class="alert animated bounceIn alert-warning alert-dismissible fade in" role="alert" ng-if="isConnection">
+                                <button type="button" class="close" data-dismiss="alert"><span ng-click="removeConnectionMessage()">×</span></button>
+                                <strong>Success:</strong> Connection work fine.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="footer-content">
+                <p>Copyright © by TuGG 2015 @ Manao Software</p>
+            </div>
+        </footer>
+
+        <!--JS Library-->
+        <script src="node_modules/angular/angular.min.js"></script>
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+        <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+        <script src="scripts/app.js"></script>
+
+        <!--Services-->
+        <script src="scripts/modules/profile/services/profile-service.js"></script>
+        <script src="scripts/modules/shared/services/connection-service.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!--Controllers-->
+        <script src="scripts/modules/shared/controllers/root-controller.js"></script>
+        <script src="scripts/modules/profile/controllers/profile-controller.js"></script>
+	</body>
+</html>
