@@ -11,7 +11,8 @@
   "dependencies": {
     "angular": "^1.4.7",
     "ejs": "^2.3.4",
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "angular-ui-router": "^0.2.15"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

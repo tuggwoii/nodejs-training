@@ -19,12 +19,7 @@ app.set('view engine', 'html');
 app.get('/', function(request, response) {
   response.render('pages/index');
 });
-//app.get('/views/partials/get-started.html', function(request, response) {
-//  response.render('views/partials/get-started.html');
-//});
-//app.get('/views/partials/main.html', function(request, response) {
-//  response.render('views/partials/main.html');
-//});
+
 app.get('*', function (request, response) {
     response.status(404).render('pages/404');
 });

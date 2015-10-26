@@ -2,7 +2,23 @@
     <div class="col-md-12 section left">
         <h1>Database</h1>
         <blockquote class="top-space-m">On this topic we will talk about how to connect to MSSQL With Node.js</blockquote>
+        <blockquote class="top-space">Setup</blockquote>
         <blockquote class="top-space">Retrieve the data</blockquote>
         <blockquote class="top-space">Save the data</blockquote>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-12 grey section left">
+        <h1>Setup Configuration</h1>
+        <p class="top-space-m">- First install this module <code>npm install mssql</code></p>
+        <p>- Create empty database on the SQL Server</p>
+        <p>- Create 1 folder to contain server module, I will create <code>server_modules</code></p>
+        <p>- Create database-module.js and put this code in <code><a href="example/ch5/resources/database-module.js">database-module.js</a></code> and set it up.</p>
+        <p>- Import it into index.js file <code>var db = require('./server_modules/database-module.js');</code></p>
+        <p>- Create some route on the server and try to connect by call <code>db.connect();</code></p>
+        <p>- The above step you need to be careful because it's asyncronize function, so you need to wait for the result before you response to the client</p>
+        <p>- If it's success it will return isSuccess = true, otherwise it will return isSuccess = false and error message</p>
+    </div>
+</div>
+
+
