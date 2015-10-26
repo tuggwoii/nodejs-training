@@ -24,5 +24,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 	  .state('angularjs', {
           url: "/angularjs",
           templateUrl: "views/partials/angularjs.html",
-      });
+	  }).state('database', {
+	      url: "/database",
+	      templateUrl: "views/partials/database.html",
+	  });
 });
