@@ -121,12 +121,23 @@ footer {
 .skills {
     text-align:left;
 }
+form .skills input {
+    width:50%;
+    display:inline-block;
+    border:none;
+    border-bottom:1px dashed #ccc;
+    border-radius: 0px;
+    outline:none;
+}
+form .skills li {
+    border:none;
+}
 .skills h2 {
-    font-size: 30px;
-    color:#aaa;
+    font-size: 28px;
+    color: #aaa;
     border-bottom: 1px solid #ccc;
-    text-align:center;
-    padding-bottom:10px;
+    padding-bottom: 10px;
+    padding-left: 11px;
 }
 ul,li  {
     list-style:none;
@@ -147,6 +158,18 @@ li {
 }
 .notifications {
     margin-top: 20px;
+}
+form {
+    text-align:left;
+    max-width:650px;
+    margin: 0 auto;
+}
+.fa-remove {
+    color:red;
+    float:right;
+}
+input.invalid {
+    border: 1px solid red;
 }
 @media screen and (max-width: 1100px)  {
     .image-border {

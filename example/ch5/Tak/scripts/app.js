@@ -1,5 +1,5 @@
 ﻿'use strict';
-var app = angular.module('app', ['ngAnimate', 'ui.router']);
+var app = angular.module('app', ['ngAnimate', 'ui.router', 'ui.sortable']);
 var angularApp = {
     init: function () {
         $(document).ready(this.onReady);

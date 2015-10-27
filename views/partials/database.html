@@ -1,19 +1,19 @@
-﻿<div class="row">
+<div class="row">
     <div class="col-md-12 section left">
-        <h1>Database</h1>
+        <h1>Connect Node.js with MSSQL Server</h1>
         <blockquote class="top-space-m">On this topic we will talk about how to connect to MSSQL With Node.js</blockquote>
         <blockquote class="top-space">Setup</blockquote>
         <blockquote class="top-space">Retrieve the data</blockquote>
-        <blockquote class="top-space">Save the data</blockquote>
+        <blockquote class="top-space">Insert, Update, Delete</blockquote>
     </div>
 </div>
 <div class="row">
     <div class="col-md-12 grey section left">
-        <h1>Setup Configuration</h1>
+        <h1>1. Setup Configuration</h1>
         <p class="top-space-m">- First install this module <code>npm install mssql</code></p>
         <p>- Create empty database on the SQL Server</p>
         <p>- Create 1 folder to contain server module, I will create <code>server_modules</code></p>
-        <p>- Create database-module.js and put this code in <code><a href="example/ch5/resources/database-module.js">database-module.js</a></code> and set it up.</p>
+        <p>- Create database-module.js and put this code in <code><a target="_blank" href="example/ch5/resources/database-module-1.js">database-module.js</a></code> and set it up.</p>
         <p>- Import it into index.js file <code>var db = require('./server_modules/database-module.js');</code></p>
         <p>- Create some route on the server and try to connect by call <code>db.connect();</code></p>
         <p>- The above step you need to be careful because it's asyncronize function, so you need to wait for the result before you response to the client</p>
@@ -22,3 +22,61 @@
 </div>
 
 
+<div class="row">
+    <div class="col-md-12 blue section left">
+        <h1>2. Retrieve data from MSSQL</h1>
+        <p class="top-space-m">- Create an export function on database-module.js</p>
+        <p class="top-space">- See the image bellow for an example</p>
+        <img src="img/get.png" />
+		<p class="top-space">- As you can see, the retrieve process require 2 parameter that are connection object and query</p>
+		<p class="top-space">- And there are 4 events here <code>recordset, row, error and done</code> </p>
+		<p class="top-space">- <strong>recordset:</strong> this event will get trigger each time we get the column property from the database </p>
+		<p class="top-space">- <strong>row:</strong> this event will get trigger each time the new record is getout from database (on this process we need to push each records to our array)</p>
+		<p class="top-space">- <strong>error:</strong> this event will get trigger when error occur</p>
+		<p class="top-space">- <strong>done:</strong> trigger on everything is done (The last record has been populated) on this event we will use to callback with the query result.</p>
+        <p class="top-space">- See the completed file here <a class="underline white nohover" target="_blank" href="example/ch5/resources/database-module-2.js">database-module.js</a></p>
+        <p class="top-space">- Let's try to create routes, angularjs service, controller to get te data (You can have a look how I have done on Tak project folder on example/ch5)</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 grey section left">
+        <h1>3. Insert, Update, Delete</h1>
+     	<p>- Look exactly like how we retrieve the data, just change the query</p>
+		<p class="top-space-m">- Update data</p>
+		<img src="img/update.png" />
+		<p class="top-space-m">- Insert data</p>
+		<img src="img/insert.png" />
+		<p class="top-space-m">- Delete data</p>
+		<img src="img/remove.png" />
+		<p class="top-space-m">- For more info: <a class="underline white nohover" target="_blank" href="https://www.npmjs.com/package/mssql">https://www.npmjs.com/package/mssql</a></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 section left">
+        <h1>4. The things you should know</h1>
+   		<p class="top-space-m">1. Most of the node.js server not support MSSQL server, but Microsoft Azure will be a good choice if you like MSSQL (We are Microsoft Partner Company anyway), Link: <a href="https://azure.microsoft.com/en-us/develop/nodejs/" target="_blank">https://azure.microsoft.com/en-us/develop/nodejs/</a></p>
+		<p>2. What's the best database for node.js? popular question, my answer that I copy from googlet will be depend on context. The factor that we should look into before make a dicision are what server you going to deploy your app, How big is your app data, your knowledge, and community</p>
+		<p>3. The cloud API data service is also a good choice for node.js app. Let's check this site it's free! (with some limit) <a href="https://parse.com/">https://parse.com/</a></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 grey section left">
+        <h1>5. Help me complete this task</h1>
+		<p class="top-space-m">Requirement</p>
+   		<p>1. Create input box to input a comment</p>
+		<p>2. When user post a comment, save it to MSSQL database</p>
+		<p>3. If success display a comment list</p>
+		<p>*(if have time) Try to post a comment in deferent browser, ex. if user post a comment on Chrome, Firefox must get an update comment without reload page</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 blue section left">
+        <h1>6. Homework</h1>
+		<p class="top-space-m">From your profile project.</p>
+   		<p>1. Deploy your project to heroku</p>
+		<p>2. Change the data storage for your profile to MS SQL server</p>
+		<p>3. Do not deploy your change to Heroku, Heroku do not support MSSQL</p>
+		<p>4. Bring your project on the next training</p>
+    </div>
+</div>

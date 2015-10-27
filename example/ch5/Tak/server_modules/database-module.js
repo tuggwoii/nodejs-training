@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 var sql = require('mssql');
 
 var connection = {
@@ -18,6 +18,7 @@ function getSkills (id, callback) {
         if (err) {
             response = { isSuccess: false, message: err };
             callback(response);
+            connect.close();
         }
         else {
             var request = new sql.Request(connect);
@@ -36,10 +37,76 @@ function getSkills (id, callback) {
             request.on('error', function (err) {
                 response = { isSuccess: false, message: err };
                 callback(response);
+                connect.close();
             });
 
             request.on('done', function () {
                 callback(skills);
+                connect.close();
+            });
+        }
+    });
+}
+
+function removeSkills (id, callback) {
+    var response;
+    var isResponse = false;
+    var connect = new sql.Connection(connection, function (err) {
+        if (err) {
+            response = { isSuccess: false, message: err };
+            callback(response);
+            connect.close();
+        }
+        else {
+            var request = new sql.Request(connect);
+            request.stream = true;
+            request.query('delete from Skills where PID = ' + id);
+
+            request.on('error', function (err) {
+                response = { isSuccess: false, message: err };
+                callback(response);
+                isResponse = true;
+                connect.close();
+            });
+
+            request.on('done', function () {
+                if (!isResponse) {
+                    response = { isSuccess: true, message: 'success' };
+                    callback(response);
+                    connect.close();
+                }
+            });
+        }
+    });
+}
+
+function insertSkills (skill, callback) {
+    var response;
+    var isResponse = false;
+    var connect = new sql.Connection(connection, function (err) {
+        if (err) {
+            response = { isSuccess: false, message: err };
+            callback(response);
+            connect.close();
+        }
+        else {
+            var request = new sql.Request(connect);
+            request.stream = true;
+            request.query('INSERT INTO Skills (PID, Skill) VALUES (' + skill.PID + ',\'' + skill.Skill + '\')');
+
+            request.on('error', function (err) {
+                response = { isSuccess: false, message: err };
+                callback(response);
+                isResponse = true;
+                connect.close();
+            });
+
+            request.on('done', function () {
+                if (!isResponse) {
+                    response = { isSuccess: true, message: 'success' };
+                    callback(response);
+                    connect.close();
+                }
             });
         }
     });
@@ -56,9 +123,9 @@ exports.connect = function (callback) {
         }
         if (callback) {
             callback(response);
+            connect.close();
         }
     });
-    return connect;
 };
 
 exports.getProfile = function (id, callback) {
@@ -84,6 +151,7 @@ exports.getProfile = function (id, callback) {
             request.on('error', function (err) {
                 response = { isSuccess: false, message: err };
                 callback(response);
+                connect.close();
             });
 
             request.on('done', function () {
@@ -91,18 +159,61 @@ exports.getProfile = function (id, callback) {
                     if (profiles.length) {
                         profiles[0].skills = skills;
                         callback(profiles[0]);
+                        connect.close();
                     }
                     else {
                         response = { isSuccess: false, message: "no records" };
                         callback(response);
+                        connect.close();
                     }
                 });
             });
         }
     });
-    return connect;
 };
 
 exports.getSkills = function (id, callback) {
     getSkills(id, callback);
+};
+
+exports.saveProfile = function (profile, callback) {
+    var response;
+    var isResponse = false;
+    var connect = new sql.Connection(connection, function (err) {
+        if (err) {
+            response = { isSuccess: false, message: err };
+        }
+        else {
+            var request = new sql.Request(connect);
+
+            request.stream = true;
+            request.query('update Profile set Name = \'' + profile.Name + '\', Email = \'' + profile.Email + '\', Telephone = \'' + profile.Telephone + '\' where Id = ' + profile.Id);
+
+            request.on('error', function (err) {
+                response = { isSuccess: false, message: err };
+                isResponse = true;
+                callback(response);
+                connect.close();
+            });
+
+            request.on('done', function () {
+                if (!isResponse) {
+                    removeSkills(profile.Id, function (res) {
+                        if (res && res.isSuccess) {
+                            for (var i = 0; i < profile.skills.length; i++) {
+                                var skill = profile.skills[i];
+                                skill.PID = profile.Id;
+                                insertSkills(profile.skills[i], function () { });
+                            }
+                            callback(profile);
+                        }
+                        else {
+                            callback(res);
+                        }
+                    });
+                    connect.close();
+                }
+            });
+        }
+    });
 };

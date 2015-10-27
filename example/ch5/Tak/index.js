@@ -1,5 +1,6 @@
 'use strict';
 var express = require('express');
+var bodyParser = require('body-parser');
 var api = require('./server_modules/api-module.js');
 var app = express();
 var routes = [];
@@ -13,6 +14,7 @@ app.use('/views', express.static(__dirname + '/views'));
 app.use('/css', express.static(__dirname + '/css'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'html');
+app.use(bodyParser.json());
 
 app.get('/', function (request, response) {
     response.render('pages/index');
@@ -21,7 +23,19 @@ app.get('/', function (request, response) {
 app.get('*', function (request, response) {
     routes = getRoutes(request.url);
     if (routes[0] === 'api') {
-        api.response(routes, function (apiResponse) {
+        api.response(routes, '', function (apiResponse) {
+            response.status(200).json(apiResponse);
+        });
+    }
+    else {
+        response.status(404).render('pages/404');
+    }
+});
+
+app.post('*', function (request, response) {
+    routes = getRoutes(request.url);
+    if (routes[0] === 'api') {
+        api.response(routes, request.body, function (apiResponse) {
             response.status(200).json(apiResponse);
         });
     }

@@ -1,7 +1,7 @@
 ﻿'use strict';
 var db = require('./database-module.js');
 
-exports.response = function (routes, callback) {
+exports.response = function (routes, data, callback) {
     if (routes[1] == 'connection') {
         db.connect(callback);
     }
@@ -19,6 +19,19 @@ exports.response = function (routes, callback) {
             }
             else {
                 callback({ isSuccess: false, message: 'invalid id'});
+            }
+        }
+        else {
+            callback({ isSuccess: false, message: 'id not found' });
+        }
+    }
+    else if (routes[1] == 'saveprofile') {
+        if (data) {
+            if (data.Id) {
+                db.saveProfile(data, callback);
+            }
+            else {
+                callback({ isSuccess: false, message: 'invalid id' });
             }
         }
         else {
