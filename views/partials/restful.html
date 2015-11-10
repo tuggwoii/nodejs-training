@@ -1,0 +1,168 @@
+﻿<div class="row">
+    <div class="col-md-12 section left">
+        <h1>Node.js RESTFul API</h1>
+        <blockquote class="top-space-m">On this topic we will talk about what is RESTFul</blockquote>
+        <blockquote class="top-space">Create RESTFul API with Node.js</blockquote>
+        <blockquote class="top-space">Create Client App to connect with the API</blockquote>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 grey section left">
+        <h1>0. Forever, mutiple nodejs server !</h1>
+        <p class="top-space-m">- In this chapter we need to simulate 2 server, one for API and another for web app</p>
+        <p>- So we going to use forever, install <code>npm install forever -g</code></p>
+        <p>- To start the nodejs app with forever <code>forever start fileName.js</code></p>
+        <p>- To see the list of the node.js app that run with forever <code>forever list</code></p>
+        <p>- To stop the node.js app that run with forever <code>forever stop [index] (see the index from list)</code></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 section left">
+        <h1>1. What is RESTFul</h1>
+        <p class="top-space">
+            <strong>REST</strong> stands for Representational State Transfer, it  is the software architectural. We can short describ by "API/Services that use HTTP Protocal to response/provide the information/data
+        </p>
+        <p>- REST focus on Things/object/data not an action/verb/UI (Resource Base by URIs)</p>
+        <p>
+            "REST" is an architectural paradigm. "RESTful" describes using that paradigm.
+        </p>
+        <p>
+            - Before REST we use SOAP (Simple Object Access Protocol)
+        </p>
+        <p>
+            - The problem of SOAP is it's contain header and body that use xml format. So it's a big file that effect to the performance.
+        </p>
+        <p>
+            - Six constraints of REST
+            <ul>
+                <li>Uniform Interface - Use HTTP verb with URIs as an interfaces to connect to resources</li>
+                <li>Stateless - not keep any client request on the server, each request are independent</li>
+                <li>Cacheable - Cache the response to eliminates some client–server interactions</li>
+                <li>Client-Server - Seperate server/client, Client not going to access data storage. Servers are not concerned with the user interface or user state</li>
+                <li>Layered System - a system in which components are grouped, such that lower layers provide functions and services. When changing on some layer it should not effect to other layer</li>
+                <li>Code on Demand (optional) - Sending executeable file to client, JavaScript, Flash, Java applets and run it on client</li>
+            </ul>
+        </p>
+        <p>
+            Helpful article  <a href="http://www.restapitutorial.com/" target="_blank">REST tutorial</a>
+        </p>
+        <p>*What is the defferent b/w API (Application Programming Interface) and Web services</p>
+        <img src="img/rest.png" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 section blue left">
+        <h1>2. Create RESTFul API with Node.js</h1>
+        <p class="top-space">
+            1. For a best practice, the first page of the API should provide information about how to use/access, what we provide, Example..
+        </p>
+        <p class="top-space">
+            2. Setup project like previous chapter, using express
+        </p>
+        <p class="top-space">
+            3. Write a code to handle all request method that you want to use, in my case I will use all the HTTP methods, then it will look like this
+        <p>
+            <code>
+                app.get('*', function (request, response) {
+                handleRequest(request, response)
+                });
+            </code>
+        </p>
+        <p>
+            <code>
+                app.post('*', function (request, response) {
+                handleRequest(request, response)
+                });
+            </code>
+        </p>
+        <p>
+            <code>
+                app.put('*', function (request, response) {
+                handleRequest(request, response)
+                });
+            </code>
+        </p>
+        <p>
+            <code>
+                app.delete('*', function (request, response) {
+                handleRequest(request, response)
+                });
+            </code>
+        </p>
+
+        <p>
+            4. Then just handle the routes for each HTTP methodes, In my case I will call 1 methode for handles all request and HTTP methods
+        </p>
+        <p>
+            5. For an optional you can install some node_modules that convert json object for xml object for make it more flexible. <code>let's try js2xmlparser</code>
+        </p>
+        <p>
+            6. You can check the request header to handle the request accept document type. <code>request.headers.accept</code> <br />
+            - Example 
+            <code>
+                function isAcceptXML (request) { return request.headers.accept.indexOf('application/xml') > -1;}
+            </code> <br/>
+            - This method will check, are the client accept XML document.
+        </p>
+        <p>
+            *7. Don't forget to set header to allow cross origin, before response just add header like this <br/><code> response.header("Access-Control-Allow-Origin", "*"); <br />
+            response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");</code>
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 section left">
+        <h1>3. Node.js API</h1>
+        <p class="top-space">
+            1. Try to build the API that store/provide the song data (Youtube video).
+        </p>
+        <p>
+            2. Song have 3 property, URL, Name and Artist
+        </p>
+        <p>
+            3. The main API URL must be <code>domain/api/songs</code>
+        </p>
+        <p>
+            4. Store song list as a simple songs.txt file by using JSON format
+        </p>
+        <p>
+            5. Allow user to get song list, get song by id, add new song to the list, remove song from the list
+        </p>
+        <p>
+            6. Using Post Man/REST console to test your API
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 section grey left">
+        <h1>4. Node.js API + Node.js client</h1>
+        <p class="top-space">
+            1. Build Node.js client to connect with API from (3)
+        </p>
+        <p>
+            2. Get the song list and display by using given markup
+        </p>
+        <p>
+            3. Create a client request services to add, edit, remove song list
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 section left">
+        <h1>5.  Node.js API + ASP.NET MVC Client with XML</h1>
+        <p class="top-space">
+            1. Build ASP.NET MVC client to connect with API from (3) (You can use pure ASP.NET or Umbraco if you want)
+        </p>
+        <p>
+            2. Must get the data as a XML format
+        </p>
+        <p>
+            3. Render it using Razer by using given markup
+        </p>
+        <p>
+            4. Complete it without using Javascript!
+        </p>
+        <a href="http://stackoverflow.com/questions/364253/how-to-deserialize-xml-document" target="_blank">This maybe help you</a>
+    </div>
+</div>

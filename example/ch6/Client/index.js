@@ -5,7 +5,7 @@ var api = require('./server_modules/api-module.js');
 var app = express();
 var routes = [];
 
-app.set('port', (process.env.PORT || 4000));
+app.set('port', (process.env.PORT || 3000));
 app.engine('html', require('ejs').renderFile);
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use('/images', express.static(__dirname + '/images'));

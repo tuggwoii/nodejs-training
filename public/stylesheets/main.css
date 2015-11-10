@@ -140,3 +140,14 @@ nav.line {
 a.nohover {
     color:#fff;
 }
+img {
+    max-width:100%;
+}
+@media (max-width:1250px) {
+    .space-bottom {
+        padding-bottom:200px;
+    }
+    nav {
+        height:140px;
+    }
+}

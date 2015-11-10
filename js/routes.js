@@ -1,9 +1,7 @@
 app.config(function ($stateProvider, $urlRouterProvider) {
-    //
-    // For any unmatched url, redirect to /state1
+
     $urlRouterProvider.otherwise("/");
-    //
-    // Now set up the states
+
     $stateProvider
       .state('home', {
           url: "/",
@@ -27,5 +25,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 	  }).state('database', {
 	      url: "/database",
 	      templateUrl: "views/partials/database.html",
+	  }).state('restful', {
+	      url: "/restful",
+	      templateUrl: "views/partials/restful.html",
 	  });
 });
